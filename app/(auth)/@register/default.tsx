@@ -1,3 +1,5 @@
 export default function Default() {
-    return null;
+    return (
+        <p>Adios mundo</p>
+    );
 }
