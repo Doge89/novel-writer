@@ -1,18 +1,21 @@
 "use client";
-
+import { usePathname } from "next/navigation";
 import RootContainer from "@/app/_components/base/RootContainer";
 import Image from "next/image";
 import { NodeWithChildrenProps, AuthLayoutProps } from "@/app/_typescript/props/base.props";
-import {usePathname} from "next/navigation";
 
-export default function RootLayout({ children, signin, register }: NodeWithChildrenProps<AuthLayoutProps>) {
+import SignIn from "@/app/(auth)/@signin/page";
+import Register from "@/app/(auth)/@register/page";
+
+export default function RootLayout({
+     children}: NodeWithChildrenProps<AuthLayoutProps>) {
 
     const path = usePathname();
 
     return (
       <RootContainer>
           <div className='lg:flex flex-col flex-1 bg-complementary-600 hidden'>
-              {path === '/login' ? signin : register}
+              { path === '/login' ? (<SignIn />) : (<Register />) }
           </div>
           <div className='items-center justify-center flex flex-col flex-1 gap-1.5 lg:p-12 sm:p-6 bg-white'>
               <div className='flex w-full items-end justify-end p-1.5'>

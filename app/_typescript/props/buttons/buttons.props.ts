@@ -13,5 +13,6 @@ export interface IconButtonProps {
 export interface PrimaryButtonProps {
     content: string;
     type: HTMLButtonType;
+    disabled?: boolean;
     onClick(handler: ResultEventHandler<React.MouseEvent, undefined>): void;
 }

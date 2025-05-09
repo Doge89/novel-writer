@@ -20,7 +20,7 @@ export default function Home() {
         <>
         <div className='flex flex-col w-full items-start justify-center gap-6'>
             <div className='flex flex-col gap-1'>
-                <h1 className='font-bold text-complementary-950 text-3xl'>Sign up</h1>
+                <h1 className='font-bold text-complementary-950 text-3xl'>Log in</h1>
                 <p className='font-normal text-gray-300'>Welcome back! Let’s this journey begins</p>
             </div>
             <SignUpGoogleButton />

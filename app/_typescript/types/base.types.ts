@@ -3,9 +3,7 @@ export type ResultEventHandler<TEvent, TData> = TEvent extends React.SyntheticEv
     e: TEvent;
     data: TData;
 } : never
-
 export type TailwindCSSCoordinatesDefinition = 'w' | 'h';
-
 export type TailwindCSSPxSize = `${TailwindCSSCoordinatesDefinition}-[${number}px]`;
-
 export type HTMLButtonType = 'button' | 'submit' | 'reset';
+export type BaseReducerActionType = 'update' | 'flush';
