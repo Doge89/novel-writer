@@ -8,11 +8,10 @@ import FormContainer from "@/app/_components/forms/FormContainer";
 import FormSectionContainer from "@/app/_components/forms/FormSectionContainer";
 import InputField from "@/app/_components/inputs/InputField";
 import PrimaryButton from "@/app/_components/buttons/PrimaryButton";
-import {ResultEventHandler} from "@/app/_typescript/types/base.types";
 
 export default function Home() {
 
-    const onClick = (handler: ResultEventHandler<React.MouseEvent, undefined>):void => {
+    const onClick = (): void => {
 
     }
 

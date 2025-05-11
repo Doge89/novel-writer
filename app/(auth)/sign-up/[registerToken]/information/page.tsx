@@ -2,7 +2,6 @@
 import React, { use, useState } from 'react';
 import { ParamsProps } from '@/app/_typescript/props/base.props';
 import { SignUpParamsProps } from '@/app/_typescript/props/pages/auth/sign-up.props';
-import {useUseRegisterContext} from "@/app/_contexts/register-user.context";
 
 import FormContainer from "@/app/_components/forms/FormContainer";
 import FormLabel from "@/app/_components/forms/FormLabel";
@@ -14,18 +13,17 @@ import {SelectOptionProps} from "@/app/_typescript/props/misc/select.props";
 
 export default function RegisterTokenPage({ params }: ParamsProps<SignUpParamsProps>) {
   const { registerToken } =  use(params);
-  const { dispatchUserDto, ...userDto } = useUseRegisterContext();
   const [selectedCountry, setSelectedCountry] = useState<Omit<SelectOptionProps, 'onChange'>>();
   const [itemSource, setItemSource] = useState<Omit<SelectOptionProps, 'onChange'>[]>([{ value: 'Test', label: 'Test', isSelected: false }])
   if (!registerToken) {
     return <div>Not found</div>
   }
 
-  const onClick = (e: ResultEventHandler<React.MouseEvent, undefined>) => {
+  const onClick = () => {
 
   }
 
-  const onInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const onInput = () => {
   }
 
   const onChangeHandler = (event: ResultEventHandler<React.ChangeEvent<HTMLInputElement>, Omit<SelectOptionProps, 'onChange'>>) => {

@@ -7,7 +7,7 @@ import IconButton from "@/app/_components/buttons/IconButton";
 import {ResultEventHandler} from "@/app/_typescript/types/base.types";
 
 export default function InputField({ onInput, ...props }: InputProps) {
-    const [isPassword, setIsPassword] = useState(props.type === 'password');
+    const [isPassword, ] = useState(props.type === 'password');
     const [icon, setIcon] = useState<JSX.Element>(<Eye color='#6b7280' />);
     const [isShowPassword, setIsShowPassword] = useState(false);
 
