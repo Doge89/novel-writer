@@ -17,7 +17,7 @@ function Select({
 }: SelectProps) {
 
   const [isOpen, setIsOpen] = useState(false);
-  const selectRef = useRef<HTMLDivElement>();
+  const selectRef = useRef<HTMLDivElement>(null);
   const openDropDown = () => setIsOpen(!isOpen);
   const [] = useCloseClickingOutside<HTMLDivElement, MouseEvent>(selectRef, openDropDown, isOpen);
 

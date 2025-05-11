@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 
 function useCloseClickingOutside<TElement extends HTMLElement, TEvent>(
-  ref: React.RefObject<TElement>,
+  ref: React.RefObject<TElement | null>,
   handler: (e: TEvent) => void,
   isOpen: boolean,
 ) {
