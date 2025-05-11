@@ -1,11 +1,10 @@
 "use client";
 
-import {useState, useEffect, useActionState} from "react";
+import { useState, useEffect } from "react";
 
 import React from "react";
 import Link from "next/link";
 
-import {useAxiosBuilder} from "@/app/_hooks/base/useAxiosBuilder";
 
 import SignUpGoogleButton from "@/app/_components/buttons/SignUpGoogleButton";
 import SeparatorOptions from "@/app/_components/misc/SeparatorOptions";
@@ -13,13 +12,11 @@ import FormContainer from "@/app/_components/forms/FormContainer";
 import FormSectionContainer from "@/app/_components/forms/FormSectionContainer";
 import InputField from "@/app/_components/inputs/InputField";
 import PrimaryButton from "@/app/_components/buttons/PrimaryButton";
-import {ResultEventHandler} from "@/app/_typescript/types/base.types";
 
-import {USER_URL_SEGMENT} from "@/app/_typescript/constants";
 
 export default function Page() {
 
-  const onClick = (e: ResultEventHandler<React.MouseEvent, undefined>): void => {
+  const onClick = (): void => {
 
   }
 
@@ -27,10 +24,6 @@ export default function Page() {
   const [password, setPassword] = useState<string>('');
   const [confirmPassword, setConfirmPassword] = useState<string>('');
   const [isValidPassword, setIsValidPassword] = useState<boolean>(true);
-  const [state, formAction] = useActionState(() => {return ''}, '');
-
-  const userApi = useAxiosBuilder(USER_URL_SEGMENT);
-
 
   useEffect(() => {
     setIsValidPassword(password === confirmPassword && password !== '' && confirmPassword !== '');
