@@ -1,5 +1,5 @@
 "use client";
-import React, { use } from 'react';
+import React, { use, useState } from 'react';
 import { ParamsProps } from '@/app/_typescript/props/base.props';
 import { SignUpParamsProps } from '@/app/_typescript/props/pages/auth/sign-up.props';
 import {useUseRegisterContext} from "@/app/_contexts/register-user.context";
@@ -10,10 +10,13 @@ import InputField from "@/app/_components/inputs/InputField";
 import PrimaryButton from "@/app/_components/buttons/PrimaryButton";
 import Select from "@/app/_components/misc/Select";
 import {ResultEventHandler} from "@/app/_typescript/types/base.types";
+import {SelectOptionProps} from "@/app/_typescript/props/misc/select.props";
 
 export default function RegisterTokenPage({ params }: ParamsProps<SignUpParamsProps>) {
   const { registerToken } =  use(params);
   const { dispatchUserDto, ...userDto } = useUseRegisterContext();
+  const [selectedCountry, setSelectedCountry] = useState<Omit<SelectOptionProps, 'onChange'>>();
+  const [itemSource, setItemSource] = useState<Omit<SelectOptionProps, 'onChange'>[]>([{ value: 'Test', label: 'Test', isSelected: false }])
   if (!registerToken) {
     return <div>Not found</div>
   }
@@ -25,26 +28,43 @@ export default function RegisterTokenPage({ params }: ParamsProps<SignUpParamsPr
   const onInput = (e: React.ChangeEvent<HTMLInputElement>) => {
   }
 
+  const onChangeHandler = (event: ResultEventHandler<React.ChangeEvent<HTMLInputElement>, Omit<SelectOptionProps, 'onChange'>>) => {
+    if (event.data.value === selectedCountry?.value) {
+      setSelectedCountry(undefined);
+      return;
+    }
+    const arrCopy = itemSource.map(item => ({...item}));
+    arrCopy[itemSource.findIndex(item => item.label === event.data.label)].isSelected = event.data.isSelected;
+    setSelectedCountry(event.data);
+    setItemSource(arrCopy);
+  }
+
   return (
-    <div className='w-full flex flex-col gap-4'>
-      <FormContainer>
+    <FormContainer>
+      <div className='w-full flex flex-col gap-4'>
         <FormLabel content='Username' htmlFor='username'/>
         <InputField name='username' onInput={onInput} />
-      </FormContainer>
+      </div>
       <div className='w-full flex flex-row gap-4'>
-        <FormContainer>
+        <div className='w-full flex flex-col gap-4'>
           <FormLabel content='First name' htmlFor='firstname'/>
           <InputField name='firstname' />
-        </FormContainer>
-        <FormContainer>
+        </div>
+        <div className='w-full flex flex-col gap-4'>
           <FormLabel content='Lastname' htmlFor='lastname'/>
           <InputField name='lastname' />
-        </FormContainer>
+        </div>
       </div>
-      <div>
-        <Select />
+      <div className='w-full flex flex-col gap-4'>
+        <FormLabel content='Country'/>
+        <Select
+          isMultiple={false}
+          selected={selectedCountry}
+          sourceList={itemSource}
+          name='country'
+          onChange={onChangeHandler} />
       </div>
       <PrimaryButton onClick={onClick} type='button' content='Continue' />
-    </div>
+    </FormContainer>
   )
 }
