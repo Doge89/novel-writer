@@ -4,8 +4,8 @@ import RootContainer from "@/app/_components/base/RootContainer";
 import Image from "next/image";
 import { NodeWithChildrenProps, AuthLayoutProps } from "@/app/_typescript/props/base.props";
 
-import SignIn from "@/app/(auth)/@signin/page";
-import Register from "@/app/(auth)/@register/page";
+import SignInSlider from "@/app/_components/misc/SignInSlider";
+import RegisterSlider from "@/app/_components/misc/RegisterSlider";
 
 export default function RootLayout({
      children}: NodeWithChildrenProps<AuthLayoutProps>) {
@@ -15,7 +15,7 @@ export default function RootLayout({
     return (
       <RootContainer>
           <div className='lg:flex flex-col flex-1 bg-complementary-600 hidden'>
-              { path === '/login' ? (<SignIn />) : (<Register />) }
+              { path === '/login' ? (<SignInSlider />) : (<RegisterSlider />) }
           </div>
           <div className='items-center justify-center flex flex-col flex-1 gap-1.5 lg:p-12 sm:p-6 bg-white'>
               <div className='flex w-full items-end justify-end p-1.5'>

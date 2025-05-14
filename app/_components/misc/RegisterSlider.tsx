@@ -1,6 +1,6 @@
 import RegisterSVG from '@/public/register_image.svg';
 
-export default function Register() {
+export default function RegisterSlider() {
   return (
     <div className="w-full h-full flex flex-col flex-1 py-32 px-24 gap-4">
       <h2 className='font-bold text-2xl'>Let the words conduct your story</h2>
