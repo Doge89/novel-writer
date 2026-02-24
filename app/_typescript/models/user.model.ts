@@ -20,4 +20,14 @@ export interface UserDto extends Omit<User, 'userId' | 'userUUID' | 'bio' | 'pro
 
 export type Gender = 'M' | 'F';
 
-export type Region = 'MX' | 'US';
+export type Region =  |
+  'MX' |
+  'USA' |
+  'BRA' |
+  'ESP' |
+  'JPN' |
+  'CHN' |
+  'COL' |
+  'ARG' |
+  'CA'
+  ;

@@ -19,7 +19,7 @@ export function RegisterUserContext({ children }: NodeWithChildrenProps<unknown>
   )
 }
 
-export function useUseRegisterContext(): RegisterUserDtoContext {
+export function useRegisterUserContext(): RegisterUserDtoContext {
   const context = useContext(RegisterUserProvider);
   if (context === undefined) {
     throw new Error("Component is not inside the UseRegisterProvider");

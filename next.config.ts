@@ -19,6 +19,14 @@ const nextConfig: NextConfig = {
       }
     }
   },
+  async rewrites() {
+    return [
+      {
+        source: '/api/:path*',
+        destination: 'http://localhost:3000/:path*'
+      }
+    ];
+  },
   webpack(config, { isServer, webpack }) {
     const fileLoaderRule = config.module.rules.find(
       (rule: any) => rule.test && rule.test.test && rule.test.test('.svg')

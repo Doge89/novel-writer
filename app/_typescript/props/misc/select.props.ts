@@ -1,10 +1,11 @@
 import React from 'react';
-import {ResultEventHandler} from "@/app/_typescript/types/base.types";
+import { ElementLocationDirections , ResultEventHandler} from "@/app/_typescript/types/base.types";
 
 export type SelectProps = {
   sourceList: Omit<SelectOptionProps, 'onChange'>[];
   onChange(e: ResultEventHandler<React.ChangeEvent, Omit<SelectOptionProps, 'onChange'>>): void;
   name?: string;
+  dropDownDirection?: DropDownDirection;
 } & (SelectMultipleProps | SelectSingleProps);
 
 type SelectMultipleProps = {
@@ -23,3 +24,7 @@ export interface SelectOptionProps {
   isSelected: boolean;
   onChange(e: ResultEventHandler<React.ChangeEvent, Omit<SelectOptionProps, 'onChange'>>): void;
 }
+
+export type SelectOption = Omit<SelectOptionProps, 'onChange'>;
+
+export type DropDownDirection = Exclude<ElementLocationDirections, 'left' | 'right'> | 'auto';

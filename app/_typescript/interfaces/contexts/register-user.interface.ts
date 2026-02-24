@@ -3,5 +3,5 @@ import { ActionDispatch } from "react";
 import { RegisterUserAction } from "@/app/_typescript/reducers/register-user.interface";
 
 export interface RegisterUserDtoContext extends UserDto {
-  dispatchUserDto: ActionDispatch<[action: RegisterUserAction]>;
+  dispatchUserDto: ActionDispatch<[action: RegisterUserAction<UserDto>]>;
 }

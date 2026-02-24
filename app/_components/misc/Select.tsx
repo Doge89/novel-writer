@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, PropsWithChildren } from "react";
 import { ChevronDown } from "lucide-react";
 
 import { SelectProps, SelectOptionProps } from "@/app/_typescript/props/misc/select.props";
@@ -14,7 +14,7 @@ function Select({
   name,
   isMultiple,
   onChange,
-}: SelectProps) {
+}: PropsWithChildren<SelectProps>) {
 
   const [isOpen, setIsOpen] = useState(false);
   const selectRef = useRef<HTMLDivElement>(null);
