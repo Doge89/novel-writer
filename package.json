@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "set NEXT_DEBUG=true && next dev --turbopack -p 4000",
+    "dev": "set NEXT_DEBUG=true && next dev -p 4000",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -19,12 +19,12 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4.2.1",
     "@types/node": "^25",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^10",
     "eslint-config-next": "16.1.6",
-    "postcss": "^8",
     "tailwindcss": "^4.2.1",
     "typescript": "^5"
   },
