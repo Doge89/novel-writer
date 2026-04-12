@@ -18,11 +18,11 @@ export default function RootLayout({
               { path === '/login' ? (<SignInSlider />) : (<RegisterSlider />) }
           </div>
           <div className='items-center justify-center flex flex-col flex-1 gap-1.5 lg:p-12 sm:p-6 bg-white'>
-              <div className='flex w-full items-end justify-end p-1.5'>
+              <div className='hidden w-full items-end justify-end p-1.5 lg:flex'>
                   <Image src='/LogoMomentBg.png' alt='Logo app' width={64} height={64} />
               </div>
-              <div className='items-center justify-center flex-1 p-3'>
-                  <div className='flex items-center justify-center flex-col gap-8 w-[520px]'>
+              <div className='items-center justify-center flex-1 p-8 sm:p-4 w-full sm:w-auto'>
+                  <div className='flex items-center justify-center flex-col gap-8 w-full md-w-130'>
                       {children}
                   </div>
               </div>

@@ -1,13 +1,14 @@
 "use client";
-import React, { use, useState } from 'react';
-import { ParamsProps } from '@/app/_typescript/props/base.props';
-import { SignUpParamsProps } from '@/app/_typescript/props/pages/auth/sign-up.props';
+import React, {use, useState} from 'react';
+import {redirect, RedirectType} from "next/navigation";
+import {ParamsProps} from '@/app/_typescript/props/base.props';
+import {SignUpParamsProps} from '@/app/_typescript/props/pages/auth/sign-up.props';
 
 import FormContainer from "@/app/_components/forms/FormContainer";
 import InputField from "@/app/_components/inputs/InputField";
 import PrimaryButton from "@/app/_components/buttons/PrimaryButton";
 import Select from "@/app/_components/misc/Select";
-import { ResultEventHandler } from "@/app/_typescript/types/base.types";
+import {ResultEventHandler} from "@/app/_typescript/types/base.types";
 import {SelectOption, SelectOptionProps} from "@/app/_typescript/props/misc/select.props";
 import FormSectionContainer from "@/app/_components/forms/FormSectionContainer";
 import {AVAILABLE_GENDERS, AVAILABLE_LANGUAGES} from "@/app/_config/constants";
@@ -36,11 +37,11 @@ export default function RegisterTokenPage({ params }: ParamsProps<SignUpParamsPr
   }
 
   const onClick = () => {
-
+    redirect(`/sign-up/${registerToken}/interests`, RedirectType.replace);
   }
 
   const onInput = (
-    e: React.FormEvent<HTMLInputElement>,
+    e: React.InputEvent<HTMLInputElement>,
     field: Extract<keyof UserDto, 'firstName' | 'lastName' | 'username'>,
   ): void  => {
     dispatchUserDto({ type: 'update', value: { ...userDto, [field]: e.currentTarget.value } });
@@ -85,16 +86,13 @@ export default function RegisterTokenPage({ params }: ParamsProps<SignUpParamsPr
     dispatchUserDto({ type: 'update', value: { ...userDto, birthDay: date } });
   }
 
-  const validateFormState = (): void => {
-
-  }
 
   return (
     <FormContainer>
       <FormSectionContainer labelContent='Username' htmlFor='username'>
         <InputField name='username' value={userDto.username} onInput={(e) => onInput(e, 'username')} />
       </FormSectionContainer>
-      <div className='w-full flex flex-row gap-4'>
+      <div className='w-full flex flex-col gap-4 md:flex-row'>
         <FormSectionContainer labelContent='Firstname' htmlFor='firstname'>
           <InputField name='firstname' value={userDto.firstName} onInput={(e) => onInput(e, 'firstName')} />
         </FormSectionContainer>
@@ -102,7 +100,7 @@ export default function RegisterTokenPage({ params }: ParamsProps<SignUpParamsPr
           <InputField name='lastname' value={userDto.lastName} onInput={(e) => onInput(e, 'lastName')} />
         </FormSectionContainer>
       </div>
-      <div className='w-full flex flex-row gap-4'>
+      <div className='w-full flex flex-col gap-4 md:flex-row'>
         <FormSectionContainer labelContent='Birthday' htmlFor='birthday'>
           <DateTimePicker
             onChange={onDateTimePickerChange}

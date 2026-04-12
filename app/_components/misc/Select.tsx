@@ -27,7 +27,7 @@ function Select({
   }
 
   return (
-    <div ref={selectRef} id={name} onClick={openDropDown} role='listbox' className='cursor-pointer w-full flex flex-1 flex-row rounded-full border group hover:border-accent-700 p-4 transition focus:border-accent-700 border-gray-500 relative'>
+    <div ref={selectRef} id={name} onClick={openDropDown} role='listbox' className='cursor-pointer w-full flex flex-1 flex-row rounded-full border group hover:border-accent-700 px-4 py-2 transition focus:border-accent-700 border-gray-500 relative'>
       <div className='w-full text-complementary-950'>
         { selected ? (
           !(selected instanceof Array) ? selected.label : selected.map((option) => option.label).join(', ')
@@ -37,7 +37,7 @@ function Select({
       </div>
       <ChevronDown className={ `transition ${isOpen ? 'rotate-180' : 'rotate-0'}`} color='#0A0014' size={24} />
       { isOpen ? (
-        <div role='listbox' className='absolute left-0 top-12 w-full bg-white z-10 drop-shadow-xl h-auto max-h-[250px] overflow-y-auto rounded-md'>
+        <div role='listbox' className='absolute left-0 top-12 w-full bg-white z-10 drop-shadow-xl h-auto max-h-62.5 overflow-y-auto rounded-md'>
           { sourceList.map((option, idx) => (<Select.Option key={idx} {...option} onChange={onChangeHandler} />))}
         </div>
       ) : null }

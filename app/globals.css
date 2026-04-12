@@ -1,5 +1,18 @@
 @import "tailwindcss";
 
+.react-datepicker-wrapper {
+  flex-grow: 1;
+}
+
+.react-datepicker__input-container {
+  display: block;
+  width: 100%;
+}
+
+.react-datepicker__input-container input {
+  width: 100%;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -16,4 +29,30 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+@theme {
+  --color-accent-50: #FBEEF2;
+  --color-accent-100: #F7DEE6;
+  --color-accent-200: #F4CDD7;
+  --color-accent-300: #F0BCC9;
+  --color-accent-400: #E89BAF;
+  --color-accent-500: #DD6986;
+  --color-accent-600: #D1345B;
+  --color-accent-700: #A62646;
+  --color-accent-800: #741A31;
+  --color-accent-900: #430F1C;
+  --color-accent-950: #110407;
+
+  --color-complementary-50: #F5EBFF;
+  --color-complementary-100: #E0C2FF;
+  --color-complementary-200: #C285FF;
+  --color-complementary-300: #AD5CFF;
+  --color-complementary-400: #A347FF;
+  --color-complementary-500: #7F00FF;
+  --color-complementary-600: #6600CC;
+  --color-complementary-700: #5200A3;
+  --color-complementary-800: #3D007A;
+  --color-complementary-900: #1F003D;
+  --color-complementary-950: #0A0014;
 }

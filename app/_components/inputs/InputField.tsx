@@ -25,7 +25,7 @@ export default function InputField({ onInput, ...props }: InputProps) {
     return (
         <div className='w-full flex flex-1 flex-row rounded-full overflow-hidden group'>
             <input
-                className={`w-full ${border} p-4 outline-0 password text-complementary-950 border border-gray-500 group-hover:border-accent-700 transition focus:border-accent-700 [&:focus+div]:border-accent-700`}
+                className={`w-full ${border} px-4 py-2 outline-0 password text-complementary-950 border border-gray-500 group-hover:border-accent-700 transition focus:border-accent-700 [&:focus+div]:border-accent-700`}
                 onInput={onInput}
                 {...props}/>
             {isPassword ? (
